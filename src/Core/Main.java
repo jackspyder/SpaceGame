@@ -17,6 +17,18 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+
+        HostileShip bad = new HostileShip();
+        ShipStatus view = new ShipStatus();
+
+        bad.registerObserver(view);
+
+        bad.notifyObservers();
+
+        bad.setAlive(false);
+        bad.notifyObservers();
+
+
     }
 }

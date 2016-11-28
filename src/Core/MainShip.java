@@ -3,6 +3,7 @@ package Core;
 public class MainShip implements Ship, Observable {
     private boolean alive = true;
 
+
     @Override
     public void registerObserver(ShipStatus s) {
 
