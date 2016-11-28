@@ -1,5 +1,6 @@
 package Core;
 
-abstract class Ship {
+public interface Ship {
+
 
 }
