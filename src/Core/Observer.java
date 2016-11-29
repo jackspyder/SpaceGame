@@ -1,5 +1,7 @@
 package Core;
 
 public interface Observer {
-    public void update(boolean isAlive);
+    public void update();
+
+    //public void setSubject(Observable obj);
 }

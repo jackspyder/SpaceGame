@@ -1,6 +1,5 @@
 package Core;
 
-import Ships.HostileShip;
 import Ships.PlayerShip;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,24 +20,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         //launch(args);
 
-        HostileShip bad = new HostileShip();
-        bad.setName("baddy");
+        ShipFactory factory = new ShipFactory();
         PlayerShip player = new PlayerShip();
-        player.setName("Jack");
-
-        ShipStatus view = new ShipStatus();
-
-        bad.registerObserver(view);
-        player.registerObserver(view);
-
-        bad.notifyObservers();
-        player.notifyObservers();
-
-        bad.setAlive(false);
-        player.setAlive(false);
-        bad.notifyObservers();
-        player.notifyObservers();
-
-
+        System.out.println("Ship is of type: " + player.getShipType());
     }
 }

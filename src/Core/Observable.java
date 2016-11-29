@@ -1,7 +1,9 @@
 package Core;
 
 public interface Observable {
-    public void registerObserver(ShipStatus s);
-    public void removeObserver(ShipStatus s);
+    public void registerObserver(Observer o);
+    public void removeObserver(Observer o);
     public void notifyObservers();
+
+    public Object getUpdate(Observer o);
 }
