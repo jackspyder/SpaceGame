@@ -1,8 +1,9 @@
 package Ships;
 
+//Class sets the chosen combat mode then passes on to conduct battle.
 public class ConductBattle {
     private CombatMode mode;
-    PlayerShip ship;
+
     public void setCombatMode(CombatMode mode){
         this.mode = mode;
     }

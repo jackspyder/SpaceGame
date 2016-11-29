@@ -1,28 +1,27 @@
 package Ships;
 
-import Core.CollisionObserver;
-import Core.Observable;
-import Core.Observer;
-
-import java.util.ArrayList;
 import java.util.Random;
 
+//Primary ship class all ships are inherited from.
 abstract class Ship {
 
 
+    //basic variables to determine type, alive status and position.
     private String shipType;
     private boolean alive = true;
-    private int posX = 2;
-    private int posY = 2;
+    private int posX = 0;
+    private int posY = 0;
 
 
-
+//routine to conduct a random directional move ensuring moves are valid and within the appropriate grid space
     public void move() {
 
+        //randomise movement direction.
         Random rn = new Random();
         int index = rn.nextInt(8) + 1;
         System.out.println("index is: " + index);
         System.out.println(this.getShipType() + " ship moved from: " + getPosX() + " " + getPosY());
+        //switch statement executes with randomised index.
         switch (index) {
             case 1:
                 up(posX, posY);
@@ -54,12 +53,10 @@ abstract class Ship {
     }
 
 
-    //Movement Commands o,o top left
-
-    // down right y+1 x+1,
+    //Movement Commands o,o top left, 0,0 is only accessible during "spawn" or creation.
 
     private void up(int posX, int posY) {
-        if (posY - 1 >= 0) {
+        if (posY - 1 >= 1) {
             setPosY(posY - 1);
             getLocation();
         } else {
@@ -77,7 +74,7 @@ abstract class Ship {
     }
 
     private void left(int posX, int posY) {
-        if (posX - 1 >= 0) {
+        if (posX - 1 >= 1) {
             setPosX(posX - 1);
             getLocation();
         } else {
@@ -95,7 +92,7 @@ abstract class Ship {
     }
 
     private void upLeft(int posX, int posY) {
-        if ((posY - 1 >= 0) && (posX - 1 >= 0)) {
+        if ((posY - 1 >= 1) && (posX - 1 >= 1)) {
             setPosY(posY - 1);
             setPosX(posX - 1);
             getLocation();
@@ -105,7 +102,7 @@ abstract class Ship {
     }
 
     private void upRight(int posX, int posY) {
-        if ((posY - 1 >= 0) && (posX + 1 < 4)) {
+        if ((posY - 1 >= 1) && (posX + 1 < 4)) {
             setPosY(posY - 1);
             setPosX(posX + 1);
             getLocation();
@@ -115,7 +112,7 @@ abstract class Ship {
     }
 
     private void downLeft(int posX, int posY) {
-        if ((posY + 1 < 4) && (posX - 1 >= 0)) {
+        if ((posY + 1 < 4) && (posX - 1 >= 1)) {
             setPosY(posY + 1);
             setPosX(posX - 1);
             getLocation();
@@ -175,6 +172,5 @@ abstract class Ship {
         System.out.println(this.getShipType() + " ship moved to: " + getPosX() + " " + getPosY());
 
     }
-
 
 }

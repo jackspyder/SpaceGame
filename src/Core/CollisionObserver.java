@@ -7,20 +7,14 @@ public class CollisionObserver implements Observer {
 
     private boolean isCollision = false;
 
+    //if collision is true, combat must commence
     public void combat(){
         System.out.println("init combat");
         isCollision = true;
     }
 
-//    public void update(Object o) {
-//        if(o instanceof Integer){
-//            Integer posY = (Integer)o;
-//            if(posY==0 && isCollision== false){
-//                combat();
-//            }
-//        }
-//    }
 
+    //get X/Y coords of playership and check for collision, if true, call combat
     public void update(Object o) {
         if(o instanceof PlayerShip){
             PlayerShip p = (PlayerShip) o;

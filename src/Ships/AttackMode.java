@@ -1,5 +1,6 @@
 package Ships;
 
+//one of two combat modes used in the strategy pattern
 public class AttackMode implements CombatMode{
     @Override
     public void battle(PlayerShip ship, int hostiles) {

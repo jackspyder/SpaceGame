@@ -6,16 +6,20 @@ import Core.Observer;
 
 import java.util.ArrayList;
 
+//Observable Player ship, extended from Ship.
 public class PlayerShip extends Ship implements Observable{
 
-    CombatMode mode;
+
+    private CombatMode mode;
     private int hostiles;
     public PlayerShip(){
         setShipType("Player");
     }
 
+    //store observers
     private ArrayList<Observer> observers = new ArrayList<>();
 
+    //notify observers of changes
     public void notifyObservers() {
         for (Observer o : observers) {
             o.update(this);
@@ -32,7 +36,7 @@ public class PlayerShip extends Ship implements Observable{
 
 
 
-
+    //passes parameters for conducting a battle including mode and # of hostiles within the grid.
     public void battle(){
         ConductBattle conductBattle = new ConductBattle();
         conductBattle.setCombatMode(mode);
