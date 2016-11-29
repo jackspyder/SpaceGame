@@ -1,5 +1,5 @@
 package Ships;
 
 public interface CombatMode {
-    public void battle();
+    public void battle(int hostiles);
 }

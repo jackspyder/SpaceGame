@@ -23,5 +23,18 @@ public class Main extends Application {
         ShipFactory factory = new ShipFactory();
         PlayerShip player = new PlayerShip();
         System.out.println("Ship is of type: " + player.getShipType());
+
+        Invoker control = new Invoker();
+
+        Command move = new MoveCommand(player);
+        Command battle = new BattleCommand(player);
+
+        //switch on
+        control.setCommand(move);
+        control.pressButton();
+        //switch off
+        control.setCommand(battle);
+        control.pressButton();
+
     }
 }

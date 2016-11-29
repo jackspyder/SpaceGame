@@ -9,6 +9,13 @@ abstract class Ship {
     private int posX;
     private int posY;
 
+    public void move(){
+        System.out.println("Ship Moved.");
+    }
+
+    public void battle(CombatMode mode, int hostiles){
+        System.out.println("Combat Over");
+    }
 
     //Movement Commands o,o top left
 
