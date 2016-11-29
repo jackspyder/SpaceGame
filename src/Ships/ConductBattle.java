@@ -7,12 +7,9 @@ public class ConductBattle {
         this.mode = mode;
     }
 
-    public void engage(int hostiles){
-        mode.battle(hostiles);
+    public void engage(PlayerShip ship, int hostiles){
+        mode.battle(ship, hostiles);
     }
 
-//    public void execute(){
-//        ship.battle();
-//    }
 
 }

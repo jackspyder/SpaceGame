@@ -28,18 +28,23 @@ public class Main extends Application {
 
         Command move = new MoveCommand(player);
         Command attack = new CombatCommand(player);
-
+        System.out.println("Player is alive: " + player.isAlive());
 
         //switch on
         control.setCommand(move);
         control.pressButton();
+        control.pressButton();
+        control.pressButton();
+
         //switch off
 
-        player.setHostiles(3);
-        player.setMode(new DefenceMode());
+        player.setHostiles(2);
+        player.setMode(new AttackMode());
 
         control.setCommand(attack);
         control.pressButton();
+        System.out.println("Player is alive: " + player.isAlive());
+
 
 
     }

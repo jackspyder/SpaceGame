@@ -1,7 +1,6 @@
 package Core;
 
-import Ships.AttackMode;
-import Ships.CombatMode;
+
 import Ships.PlayerShip;
 
 public class CombatCommand implements Command{

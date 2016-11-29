@@ -15,7 +15,7 @@ public class PlayerShip extends Ship {
         ConductBattle conductBattle = new ConductBattle();
         conductBattle.setCombatMode(mode);
 
-        conductBattle.engage(hostiles);
+        conductBattle.engage(this, hostiles);
     }
 
 
