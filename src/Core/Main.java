@@ -20,14 +20,22 @@ public class Main extends Application {
         //launch(args);
 
         HostileShip bad = new HostileShip();
+        bad.setName("baddy");
+        MainShip player = new MainShip();
+        player.setName("Jack");
+
         ShipStatus view = new ShipStatus();
 
         bad.registerObserver(view);
+        player.registerObserver(view);
 
         bad.notifyObservers();
+        player.notifyObservers();
 
         bad.setAlive(false);
+        player.setAlive(false);
         bad.notifyObservers();
+        player.notifyObservers();
 
 
     }
