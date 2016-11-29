@@ -20,6 +20,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         //launch(args);
 
+
         ShipFactory factory = new ShipFactory();
         PlayerShip player = new PlayerShip();
         System.out.println("Ship is of type: " + player.getShipType());
@@ -56,9 +57,6 @@ public class Main extends Application {
 
         player.notifyObservers();
 
-
-
-        //switch off
 
         player.setHostiles(2);
         player.setMode(new AttackMode());
