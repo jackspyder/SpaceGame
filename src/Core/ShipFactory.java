@@ -1,9 +1,22 @@
 package Core;
 
-public class ShipFactory {
-    public Ship createShip(){
-        Ship ship = null;
+import Ships.BattleCruiser;
+import Ships.BattleShooter;
+import Ships.BattleStar;
+import Ships.HostileShip;
 
-        return ship;
+public class ShipFactory {
+    public HostileShip createShip(String shipType){
+        HostileShip hostile = null;
+
+        if(shipType.equalsIgnoreCase("battlestar")){
+            hostile = new BattleStar();
+        } else if(shipType.equalsIgnoreCase("battlecruiser")){
+            hostile = new BattleCruiser();
+        }else if(shipType.equalsIgnoreCase("battleshooter")){
+            hostile = new BattleShooter();
+        }
+
+        return hostile;
     }
 }

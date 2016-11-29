@@ -1,5 +1,7 @@
 package Core;
 
+import Ships.HostileShip;
+import Ships.PlayerShip;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +23,7 @@ public class Main extends Application {
 
         HostileShip bad = new HostileShip();
         bad.setName("baddy");
-        MainShip player = new MainShip();
+        PlayerShip player = new PlayerShip();
         player.setName("Jack");
 
         ShipStatus view = new ShipStatus();

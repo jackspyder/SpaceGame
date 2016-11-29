@@ -1,6 +1,8 @@
-package Core;
+package Ships;
 
-public class MainShip extends Ship implements Observable {
+import Core.Observable;
+
+public class PlayerShip extends Ship implements Observable {
 
     String name;
 

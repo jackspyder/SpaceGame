@@ -1,10 +1,21 @@
-package Core;
+package Ships;
+
+import Core.ShipStatus;
 
 import java.util.ArrayList;
 
 abstract class Ship {
     private ArrayList<ShipStatus> myObserver = new <ShipStatus>ArrayList();
     boolean alive = true;
+    protected String shipType;
+
+    public String getShipType() {
+        return shipType;
+    }
+
+    public void setShipType(String shipType) {
+        this.shipType = shipType;
+    }
 
     public boolean isAlive() {
         return alive;
