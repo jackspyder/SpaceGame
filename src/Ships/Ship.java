@@ -1,5 +1,9 @@
 package Ships;
 
+import Core.CollisionObserver;
+import Core.Observable;
+import Core.Observer;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,58 +16,41 @@ abstract class Ship {
     private int posY = 2;
 
 
+
     public void move() {
 
-        int index = (int) (Math.random() * 7);
+        Random rn = new Random();
+        int index = rn.nextInt(8) + 1;
         System.out.println("index is: " + index);
-        System.out.println("Ship Moved from: " + getPosX() + " " + getPosY());
+        System.out.println(this.getShipType() + " ship moved from: " + getPosX() + " " + getPosY());
         switch (index) {
             case 1:
                 up(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 2:
-
                 down(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 3:
-
                 left(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 4:
-
                 right(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 5:
-
                 upLeft(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 6:
-
                 upRight(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 7:
-
                 downLeft(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
                 break;
             case 8:
-
                 downRight(posX, posY);
-                System.out.println("Ship Moved to: " + getPosX() + " " + getPosY());
-
                 break;
             default:
                 break;
-
         }
-
-
     }
 
 
@@ -74,24 +61,36 @@ abstract class Ship {
     private void up(int posX, int posY) {
         if (posY - 1 >= 0) {
             setPosY(posY - 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
     private void down(int posX, int posY) {
         if (posY + 1 < 4) {
             setPosY(posY + 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
     private void left(int posX, int posY) {
         if (posX - 1 >= 0) {
             setPosX(posX - 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
     private void right(int posX, int posY) {
         if (posX + 1 < 4) {
             setPosX(posX + 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
@@ -99,6 +98,9 @@ abstract class Ship {
         if ((posY - 1 >= 0) && (posX - 1 >= 0)) {
             setPosY(posY - 1);
             setPosX(posX - 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
@@ -106,6 +108,9 @@ abstract class Ship {
         if ((posY - 1 >= 0) && (posX + 1 < 4)) {
             setPosY(posY - 1);
             setPosX(posX + 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
@@ -113,6 +118,9 @@ abstract class Ship {
         if ((posY + 1 < 4) && (posX - 1 >= 0)) {
             setPosY(posY + 1);
             setPosX(posX - 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
@@ -120,6 +128,9 @@ abstract class Ship {
         if ((posY + 1 < 4) && (posX + 1 < 4)) {
             setPosY(posY + 1);
             setPosX(posX + 1);
+            getLocation();
+        } else {
+            move();
         }
     }
 
@@ -158,4 +169,12 @@ abstract class Ship {
     private void setPosX(int posX) {
         this.posX = posX;
     }
+
+    public void getLocation() {
+
+        System.out.println(this.getShipType() + " ship moved to: " + getPosX() + " " + getPosY());
+
+    }
+
+
 }

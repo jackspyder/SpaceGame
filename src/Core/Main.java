@@ -24,6 +24,9 @@ public class Main extends Application {
         PlayerShip player = new PlayerShip();
         System.out.println("Ship is of type: " + player.getShipType());
 
+        player.addObserver(new CollisionObserver());
+        player.notifyObservers();
+
         Invoker control = new Invoker();
 
         Command move = new MoveCommand(player);
@@ -33,8 +36,27 @@ public class Main extends Application {
         //switch on
         control.setCommand(move);
         control.pressButton();
+        player.notifyObservers();
         control.pressButton();
+        player.notifyObservers();
         control.pressButton();
+        player.notifyObservers();
+        control.pressButton();
+        player.notifyObservers();
+        control.pressButton();
+        player.notifyObservers();
+        control.pressButton();
+        player.notifyObservers();
+        control.pressButton();
+        player.notifyObservers();
+        control.pressButton();
+        player.notifyObservers();
+        control.pressButton();
+        player.notifyObservers();
+
+        player.notifyObservers();
+
+
 
         //switch off
 
