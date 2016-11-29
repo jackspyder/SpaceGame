@@ -13,9 +13,7 @@ abstract class Ship {
         System.out.println("Ship Moved.");
     }
 
-    public void battle(CombatMode mode, int hostiles){
-        System.out.println("Combat Over");
-    }
+
 
     //Movement Commands o,o top left
 

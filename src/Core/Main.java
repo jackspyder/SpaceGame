@@ -1,6 +1,6 @@
 package Core;
 
-import Ships.PlayerShip;
+import Ships.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,14 +27,20 @@ public class Main extends Application {
         Invoker control = new Invoker();
 
         Command move = new MoveCommand(player);
-        Command battle = new BattleCommand(player);
+        Command attack = new CombatCommand(player);
+
 
         //switch on
         control.setCommand(move);
         control.pressButton();
         //switch off
-        control.setCommand(battle);
+
+        player.setHostiles(3);
+        player.setMode(new DefenceMode());
+
+        control.setCommand(attack);
         control.pressButton();
+
 
     }
 }
